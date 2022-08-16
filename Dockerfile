@@ -1,7 +1,4 @@
-FROM alpine
-RUN apk update
-RUN apk add busybox-extras
-FROM openjdk:8-jdk
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+FROM ghcr.io/gkedu/openjdk:8u212-jdk-alpine
+COPY target/*SNAPSHOT.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-Xmx400M","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar","--spring.profiles.active=docker"]
