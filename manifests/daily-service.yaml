@@ -7,7 +7,7 @@ metadata:
     alb.ingress.kubernetes.io/healthcheck-path: "/dailys"
 spec:
   selector:
-    app:  daily-backend
+    app: daily-backend
   type: NodePort
   ports:
     - port: 8080
