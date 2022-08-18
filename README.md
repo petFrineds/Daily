@@ -19,7 +19,7 @@ insert샘플: insert into payment (amount, pay_date, refund_date, reserved_id, u
 참고사이트 : http://www.msaschool.io/operation/implementation/implementation-seven/  
 
 --------------------------------------------------  
-3. Payment(mariadb), Shop(hsqldb) 실행 및 테스트  
+3. Payment(mariadb), Shop(hsqldb) 실행 및 테스트   
 --------------------------------------------------  
 1) Payment에서 아래와 같이 api 통해 데이터 생성하면, mariadb[payment테이블]에 데이터 저장되고, message publish.  
     - 데이터생성(postman사용) : POST http://localhost:8082/payments/   
