@@ -14,6 +14,7 @@ public class DailyRequestView {
 	private String contents;			// 작성내용
 	private WalkingPlace walkingPlace;	// 산책장소
 	private Long walkId;				// 산책ID
-	private Long userId;				// 회원ID
-	private Long dogWalkerId;			// 도그워커ID
+	private String userId;				// 회원ID
+	private String userName;			// 회원명
+	private Long dogwalkerScheduleId;	// 도그워커스케줄ID
 }

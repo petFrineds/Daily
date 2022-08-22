@@ -11,9 +11,11 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ScoreRequestView {
 
-	private Long id;				// 일지ID
-	private int starScore;			// 별점
-	private Long walkId;			// 산책ID
-    private Long dogWalkerId;		// 도그워커ID
-    private Long userId;			// 회원ID
+	private Long id;						// 일지ID
+	private int starScore;					// 별점
+	private String review;					// 후기
+	private Long walkId;					// 산책ID
+    private Long dogwalkerScheduleId;		// 도그워커스케줄ID
+    private String userId;					// 회원ID
+    private String userName;				// 회원명
 }

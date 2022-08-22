@@ -28,7 +28,7 @@ public class DailyService {
 	 }
 	 
 	 // 일지 목록 조회 (사용자 기준)
-	 public List<Daily> findAllByUserId(Long userId) {
+	 public List<Daily> findAllByUserId(String userId) {
 		 return dailyRepository.findAllByUserId(userId);
 	 } 
 	 
@@ -40,8 +40,9 @@ public class DailyService {
 				 dailyRequest.getContents(),
 				 dailyRequest.getWalkingPlace(),
 				 dailyRequest.getWalkId(), 
-				 dailyRequest.getUserId(), 
-				 dailyRequest.getDogWalkerId());
+				 dailyRequest.getUserId(),
+				 dailyRequest.getUserName(),
+				 dailyRequest.getDogwalkerScheduleId());
 		 
 		 // 일지작성 일자는 현재일시분으로 세팅
 		 DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -53,39 +54,39 @@ public class DailyService {
 	 }
 	 
 	// 일지 수정
-	@Transactional
-	public Daily dailyChanged(DailyChangedRequestView dailyChangedRequest) throws Exception {
-			 
-		// 해당건 존재여부 체크
-		dailyRepository.findById(dailyChangedRequest.getId()).orElseThrow(()->new RuntimeException("일지 건이 존재하지 않습니다."));
-		
-		// 해당건 조회
-		Daily dailyChanged = dailyRepository.findById(dailyChangedRequest.getId()).get();
-		
-		// 별점을 이미 부여하였으면, 수정불가
-		if(dailyChanged.getStarScore() != 0) {
-					 
-			throw new Exception("해당 건은 이미 별점을 부여하여 수정할 수 없습니다.");
-					 
-		}
-		
-		// 일지작성 일자는 현재일시분으로 업데이트
-		DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		String dateStr = format.format(Calendar.getInstance().getTime());
-		dailyChanged.setDailyRecordDate(dateStr);
-		
-		// 작성내용 업데이트
-		dailyChanged.setContents(dailyChangedRequest.getContents());
-		
-		// 산책장소 업데이트
-		dailyChanged.setWalkingPlace(dailyChangedRequest.getWalkingPlace());
-		 
-		return dailyRepository.save(dailyChanged);
-		
-	 }
+//	@Transactional
+//	public Daily dailyChanged(DailyChangedRequestView dailyChangedRequest) throws Exception {
+//			 
+//		// 해당건 존재여부 체크
+//		dailyRepository.findById(dailyChangedRequest.getId()).orElseThrow(()->new RuntimeException("일지 건이 존재하지 않습니다."));
+//		
+//		// 해당건 조회
+//		Daily dailyChanged = dailyRepository.findById(dailyChangedRequest.getId()).get();
+//		
+//		// 별점을 이미 부여하였으면, 수정불가
+//		if(dailyChanged.getStarScore() != 0) {
+//					 
+//			throw new Exception("해당 건은 이미 별점을 부여하여 수정할 수 없습니다.");
+//					 
+//		}
+//		
+//		// 일지작성 일자는 현재일시분으로 업데이트
+//		DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+//		String dateStr = format.format(Calendar.getInstance().getTime());
+//		dailyChanged.setDailyRecordDate(dateStr);
+//		
+//		// 작성내용 업데이트
+//		dailyChanged.setContents(dailyChangedRequest.getContents());
+//		
+//		// 산책장소 업데이트
+//		dailyChanged.setWalkingPlace(dailyChangedRequest.getWalkingPlace());
+//		 
+//		return dailyRepository.save(dailyChanged);
+//		
+//	 }
 
 	 
-	 // 별점 부여
+	 // 별점 부여 및 후기 작성
 	 @Transactional
 	 public Daily starScoreGranted(ScoreRequestView scoreRequest) throws Exception {
 		 
@@ -107,6 +108,9 @@ public class DailyService {
 
 		 // 부여된 별점 세팅
 		 starScoreGranted.setStarScore(scoreRequest.getStarScore());
+		 
+		 // 작성한 후기 세팅
+		 starScoreGranted.setReview(scoreRequest.getReview());
 		 
 		 return dailyRepository.save(starScoreGranted);
 		 
