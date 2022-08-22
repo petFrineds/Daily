@@ -36,11 +36,13 @@ public class Daily {
     @Enumerated(EnumType.STRING)
     private WalkingPlace walkingPlace;	// 산책장소
     
-    private String contents;			// 작성내용    
+    private String contents;			// 산책내용(작성내용)    
     private int starScore;				// 별점    
+    private String review;				// 후기
     private Long walkId;				// 산책ID
-    private Long dogWalkerId;			// 도그워커ID
-    private Long userId;				// 회원ID
+    private Long dogwalkerScheduleId;	// 도그워커스케줄ID
+    private String userId;				// 회원ID
+    private String userName;			// 회원명
     
     @PostPersist
     public void onPostPersist(){
@@ -68,15 +70,17 @@ public class Daily {
     		String contents,
     		WalkingPlace walkingPlace,
     		Long walkId,
-    		Long userId,
-    		Long dogWalkerId) {
+    		String userId,
+    		String userName,
+    		Long dogwalkerScheduleId) {
     	
     	return Daily.builder()
     			.contents(contents)
     			.walkingPlace(walkingPlace)
     			.walkId(walkId)
     			.userId(userId)
-    			.dogWalkerId(dogWalkerId)
+    			.userName(userName)
+    			.dogwalkerScheduleId(dogwalkerScheduleId)
     			.build();
     	
     }
@@ -122,22 +126,6 @@ public class Daily {
 		this.walkId = walkId;
 	}
 
-	public Long getDogWalkerId() {
-		return dogWalkerId;
-	}
-
-	public void setDogWalkerId(Long dogWalkerId) {
-		this.dogWalkerId = dogWalkerId;
-	}
-
-	public Long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
-
 	public int getStarScore() {
 		return starScore;
 	}
@@ -145,6 +133,37 @@ public class Daily {
 	public void setStarScore(int starScore) {
 		this.starScore = starScore;
 	}
-	
+
+	public String getReview() {
+		return review;
+	}
+
+	public void setReview(String review) {
+		this.review = review;
+	}
+
+	public Long getDogwalkerScheduleId() {
+		return dogwalkerScheduleId;
+	}
+
+	public void setDogwalkerScheduleId(Long dogwalkerScheduleId) {
+		this.dogwalkerScheduleId = dogwalkerScheduleId;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 	
 }

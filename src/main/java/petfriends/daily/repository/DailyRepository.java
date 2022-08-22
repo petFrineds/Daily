@@ -13,7 +13,7 @@ public interface DailyRepository extends JpaRepository<Daily, Long>{
     List<Daily> findAllById(Long id);
     
     // 리스트 조회 (사용자 기준)
-    List<Daily> findAllByUserId(Long userId);
+    List<Daily> findAllByUserId(String userId);
     
     // 단건 조회
     Optional<Daily> findById(Long id);

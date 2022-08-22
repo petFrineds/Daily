@@ -33,7 +33,7 @@ import petfriends.daily.view.ScoreRequestView;
 	 
 	 // 일지 목록 조회 (사용자 기준)
 	 @GetMapping("/dailys/user/{userId}")
-	 public List<Daily> findAllByUserId(@PathVariable("userId") Long userId) throws Exception {
+	 public List<Daily> findAllByUserId(@PathVariable("userId") String userId) throws Exception {
 		 return dailyService.findAllByUserId(userId);
 	 }
 	 
@@ -48,16 +48,16 @@ import petfriends.daily.view.ScoreRequestView;
 	 }
 	 
 	 // 일지 수정 (수정: 작성일자, 산책장소, 작성내용)
-	 @PutMapping("/dailys/Change")
-	 public ResponseEntity<Daily> dailyChanged(@RequestBody DailyChangedRequestView dailyChangedRequest) throws Exception {
-			 
-		 Daily dailyChanged = dailyService.dailyChanged(dailyChangedRequest);
-			 
-		 return ResponseEntity.ok(dailyChanged);
-			 
-	 }
+//	 @PutMapping("/dailys/Change")
+//	 public ResponseEntity<Daily> dailyChanged(@RequestBody DailyChangedRequestView dailyChangedRequest) throws Exception {
+//			 
+//		 Daily dailyChanged = dailyService.dailyChanged(dailyChangedRequest);
+//			 
+//		 return ResponseEntity.ok(dailyChanged);
+//			 
+//	 }
 	 
-	 // 별점 부여
+	 // 별점 부여 및 후기 작성
 	 @PutMapping("/dailys/starscore")
 	 public ResponseEntity<Daily> starScoreGranted(@RequestBody ScoreRequestView scoreRequest) throws Exception {
 		 
