@@ -42,7 +42,7 @@ public class DailyService {
 				 dailyRequest.getWalkId(), 
 				 dailyRequest.getUserId(),
 				 dailyRequest.getUserName(),
-				 dailyRequest.getDogwalkerScheduleId());
+				 dailyRequest.getDogWalkerId());
 		 
 		 // 일지작성 일자는 현재일시분으로 세팅
 		 DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
