@@ -15,7 +15,7 @@ public class ScoreRequestView {
 	private int starScore;					// 별점
 	private String review;					// 후기
 	private Long walkId;					// 산책ID
-    private Long dogwalkerScheduleId;		// 도그워커스케줄ID
+	private String dogWalkerId;				// 도그워커ID
     private String userId;					// 회원ID
     private String userName;				// 회원명
 }

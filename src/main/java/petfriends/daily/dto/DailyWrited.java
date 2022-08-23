@@ -18,7 +18,7 @@ public class DailyWrited extends AbstractEvent {
     private int starScore;				// 별점
     private String review;				// 후기
     private Long walkId;				// 산책ID
-    private Long dogwalkerScheduleId;	// 도그워커스케줄ID
+    private String dogWalkerId;			// 도그워커ID
     private String userId;				// 회원ID
     private String userName;			// 회원명
     
@@ -82,14 +82,6 @@ public class DailyWrited extends AbstractEvent {
 		this.review = review;
 	}
 
-	public Long getDogwalkerScheduleId() {
-		return dogwalkerScheduleId;
-	}
-
-	public void setDogwalkerScheduleId(Long dogwalkerScheduleId) {
-		this.dogwalkerScheduleId = dogwalkerScheduleId;
-	}
-
 	public String getUserId() {
 		return userId;
 	}
@@ -105,5 +97,15 @@ public class DailyWrited extends AbstractEvent {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+
+	public String getDogWalkerId() {
+		return dogWalkerId;
+	}
+
+	public void setDogWalkerId(String dogWalkerId) {
+		this.dogWalkerId = dogWalkerId;
+	}
+	
+	
 	
 }
