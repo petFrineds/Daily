@@ -1,8 +1,7 @@
 package petfriends.daily.service;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import petfriends.daily.model.Daily;
 import petfriends.daily.repository.DailyRepository;
-import petfriends.daily.view.DailyChangedRequestView;
 import petfriends.daily.view.DailyRequestView;
 import petfriends.daily.view.ScoreRequestView;
 
@@ -45,8 +43,12 @@ public class DailyService {
 				 dailyRequest.getDogWalkerId());
 		 
 		 // 일지작성 일자는 현재일시분으로 세팅
-		 DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		 String dateStr = format.format(Calendar.getInstance().getTime());
+//		 DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+//		 String dateStr = format.format(Calendar.getInstance().getTime());
+//		 dailyWrited.setDailyRecordDate(dateStr);
+		 
+		 LocalDateTime current = LocalDateTime.now();
+		 String dateStr = current.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
 		 dailyWrited.setDailyRecordDate(dateStr);
 		 
 		 return dailyRepository.save(dailyWrited);
