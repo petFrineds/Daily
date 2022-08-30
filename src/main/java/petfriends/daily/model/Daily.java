@@ -36,6 +36,9 @@ public class Daily {
     @Enumerated(EnumType.STRING)
     private WalkingPlace walkingPlace;	// 산책장소
     
+    private String walkStartDate; 		// 산책 시작 일시분(실제)
+	private String walkEndDate;			// 산책 종료 일시분(실제)
+    
     private String contents;			// 산책내용(작성내용)    
     private int starScore;				// 별점    
     private String review;				// 후기
@@ -72,7 +75,9 @@ public class Daily {
     		Long walkId,
     		String userId,
     		String userName,
-    		String dogWalkerId) {
+    		String dogWalkerId,
+    		String walkStartDate,
+    		String walkEndDate) {
     	
     	return Daily.builder()
     			.contents(contents)
@@ -81,6 +86,8 @@ public class Daily {
     			.userId(userId)
     			.userName(userName)
     			.dogWalkerId(dogWalkerId)
+    			.walkStartDate(walkStartDate)
+    			.walkEndDate(walkEndDate)
     			.build();
     	
     }
@@ -164,6 +171,22 @@ public class Daily {
 
 	public void setDogWalkerId(String dogWalkerId) {
 		this.dogWalkerId = dogWalkerId;
+	}
+
+	public String getWalkStartDate() {
+		return walkStartDate;
+	}
+
+	public void setWalkStartDate(String walkStartDate) {
+		this.walkStartDate = walkStartDate;
+	}
+
+	public String getWalkEndDate() {
+		return walkEndDate;
+	}
+
+	public void setWalkEndDate(String walkEndDate) {
+		this.walkEndDate = walkEndDate;
 	}
 	
 	

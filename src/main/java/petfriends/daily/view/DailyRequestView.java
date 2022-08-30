@@ -17,4 +17,6 @@ public class DailyRequestView {
 	private String userId;				// 회원ID
 	private String userName;			// 회원명
 	private String dogWalkerId;			// 도그워커ID
+	private String walkStartDate; 		// 산책 시작 일시분(실제)
+	private String walkEndDate;			// 산책 종료 일시분(실제)
 }
