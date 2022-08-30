@@ -1,25 +1,17 @@
 package petfriends.daily.controller;
 
-import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
 import petfriends.daily.model.Daily;
-import petfriends.daily.model.UserImage;
-import petfriends.daily.repository.UserImageRepository;
 import petfriends.daily.service.DailyService;
 import petfriends.daily.view.DailyRequestView;
 import petfriends.daily.view.ScoreRequestView;
@@ -29,40 +21,6 @@ import petfriends.daily.view.ScoreRequestView;
 
 	 @Autowired
 	 DailyService dailyService;
-	 
-	 @Autowired
-	 UserImageRepository userImageRepository;
-	 
-	 // 이미지 업로드
-	 @PostMapping("/dailys/upload")
-     public Long handleFileUpload(@RequestParam("file") MultipartFile file) throws IOException {
-  
-         UserImage userImage = new UserImage();
-         userImage.setMimeType(file.getContentType());
-         userImage.setOriginalName(file.getOriginalFilename());
-         userImage.setUserImage(file.getBytes());
-         UserImage saveUuserImg =  userImageRepository.save(userImage);
-         
-         return saveUuserImg.getId();
-     }
-	 
-	 // 이미지 조회
-	 @GetMapping("/dailys/imgae/{id}")
-	 public ResponseEntity<byte[]> findOne(@PathVariable Long id) {
-	    	 Optional<UserImage> user = userImageRepository.findById(id);
-	    	    
-	    	 if(user.isPresent()) {
-	    	    	
-	    	    UserImage userImage = user.get();
-	    	    HttpHeaders headers = new HttpHeaders();
-	    	    headers.add("Content-Type", userImage.getMimeType());
-	    	    headers.add("Content-Length", String.valueOf(userImage.getUserImage().length));
-	    	    return new ResponseEntity<byte[]>(userImage.getUserImage(), headers, HttpStatus.OK);
-	    	 }
-	    	    
-	    	 return null;
-	 
-	 }
 	 
 	 // 일지 단건 조회
 	 @GetMapping("/dailys/{id}")
