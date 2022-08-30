@@ -21,6 +21,8 @@ public class StarScoreGranted extends AbstractEvent {
     private String dogWalkerId;			// 도그워커ID
     private String userId;				// 회원ID
     private String userName;			// 회원명
+    private String walkStartDate; 		// 산책 시작 일시분(실제)
+	private String walkEndDate;			// 산책 종료 일시분(실제)
     
     public StarScoreGranted(){
         super();
@@ -104,6 +106,22 @@ public class StarScoreGranted extends AbstractEvent {
 
 	public void setDogWalkerId(String dogWalkerId) {
 		this.dogWalkerId = dogWalkerId;
+	}
+
+	public String getWalkStartDate() {
+		return walkStartDate;
+	}
+
+	public void setWalkStartDate(String walkStartDate) {
+		this.walkStartDate = walkStartDate;
+	}
+
+	public String getWalkEndDate() {
+		return walkEndDate;
+	}
+
+	public void setWalkEndDate(String walkEndDate) {
+		this.walkEndDate = walkEndDate;
 	}
 	
 	

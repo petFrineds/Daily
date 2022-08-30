@@ -40,7 +40,10 @@ public class DailyService {
 				 dailyRequest.getWalkId(), 
 				 dailyRequest.getUserId(),
 				 dailyRequest.getUserName(),
-				 dailyRequest.getDogWalkerId());
+				 dailyRequest.getDogWalkerId(),
+				 dailyRequest.getWalkStartDate(),
+				 dailyRequest.getWalkEndDate()
+				 );
 		 
 		 // 일지작성 일자는 현재일시분으로 세팅
 //		 DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");

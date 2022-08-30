@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: daily-backend
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: daily-backend
+  template:
+    metadata:
+      labels:
+        app: daily-backend
+    spec:
+      containers:
+        - name: daily-backend
+          image: 811288377093.dkr.ecr.us-west-2.amazonaws.com/daily-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DATE
+              value: 'DATE_STRING'
+          env:   # Setting Enviornmental Variables
+            - name: HOST_NAME   # Setting Database host address from configMap
+              valueFrom :
+                configMapKeyRef :
+                  name : db-config
+                  key :  host
+            - name: DB_NAME  # Setting Database name from configMap
+              valueFrom :
+                configMapKeyRef :
+                  name : db-config
+                  key :  dbName
+            - name: DB_USERNAME  # Setting Database username from Secret
+              valueFrom :
+                secretKeyRef :
+                  name : db-secrets
+                  key :  username
+            - name: DB_PASSWORD # Setting Database password from Secret
+              valueFrom :
+                secretKeyRef :
+                  name : db-secrets
+                  key :  password
+            - name: KAFKA_HOST_NAME   # Setting Kafka host address from configMap
+              valueFrom :
+                configMapKeyRef :
+                  name : kafka-config
+                  key :  host                   
