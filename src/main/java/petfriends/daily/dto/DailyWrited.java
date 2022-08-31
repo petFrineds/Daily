@@ -19,6 +19,7 @@ public class DailyWrited extends AbstractEvent {
     private String review;				// 후기
     private Long walkId;				// 산책ID
     private String dogWalkerId;			// 도그워커ID
+    private String dogWalkerName;		// 도그워커명
     private String userId;				// 회원ID
     private String userName;			// 회원명
     private String walkStartDate; 		// 산책 시작 일시분(실제)
@@ -122,6 +123,14 @@ public class DailyWrited extends AbstractEvent {
 
 	public void setWalkEndDate(String walkEndDate) {
 		this.walkEndDate = walkEndDate;
+	}
+
+	public String getDogWalkerName() {
+		return dogWalkerName;
+	}
+
+	public void setDogWalkerName(String dogWalkerName) {
+		this.dogWalkerName = dogWalkerName;
 	}
 	
 	

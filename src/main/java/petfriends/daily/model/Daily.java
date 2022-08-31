@@ -44,6 +44,7 @@ public class Daily {
     private String review;				// 후기
     private Long walkId;				// 산책ID
     private String dogWalkerId;			// 도그워커ID
+    private String dogWalkerName;		// 도그워커명
     private String userId;				// 회원ID
     private String userName;			// 회원명
     
@@ -76,6 +77,7 @@ public class Daily {
     		String userId,
     		String userName,
     		String dogWalkerId,
+    		String dogWalkerName,
     		String walkStartDate,
     		String walkEndDate) {
     	
@@ -86,6 +88,7 @@ public class Daily {
     			.userId(userId)
     			.userName(userName)
     			.dogWalkerId(dogWalkerId)
+    			.dogWalkerName(dogWalkerName)
     			.walkStartDate(walkStartDate)
     			.walkEndDate(walkEndDate)
     			.build();
@@ -187,6 +190,14 @@ public class Daily {
 
 	public void setWalkEndDate(String walkEndDate) {
 		this.walkEndDate = walkEndDate;
+	}
+
+	public String getDogWalkerName() {
+		return dogWalkerName;
+	}
+
+	public void setDogWalkerName(String dogWalkerName) {
+		this.dogWalkerName = dogWalkerName;
 	}
 	
 	

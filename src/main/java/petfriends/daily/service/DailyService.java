@@ -41,6 +41,7 @@ public class DailyService {
 				 dailyRequest.getUserId(),
 				 dailyRequest.getUserName(),
 				 dailyRequest.getDogWalkerId(),
+				 dailyRequest.getDogWalkerName(),
 				 dailyRequest.getWalkStartDate(),
 				 dailyRequest.getWalkEndDate()
 				 );
@@ -94,23 +95,19 @@ public class DailyService {
 	 // 별점 부여 및 후기 작성
 	 @Transactional
 	 public Daily starScoreGranted(ScoreRequestView scoreRequest) throws Exception {
-		 
-		 // 해당건 존재여부 체크
-		 dailyRepository.findById(scoreRequest.getId()).orElseThrow(()->new RuntimeException("일지 건이 존재하지 않습니다."));
-				 
+		 if(scoreRequest.getStarScore() <= 0 || scoreRequest.getStarScore() > 5) 
+			 throw new Exception("별점은 1 ~ 5점 중 부여 가능합니다.");
+
 		 // 해당건 조회
-		 Daily starScoreGranted = dailyRepository.findById(scoreRequest.getId()).get();
-		 
+		 Daily starScoreGranted = dailyRepository.findById(scoreRequest.getId()).orElseThrow(()->new RuntimeException("일지 건이 존재하지 않습니다."));
+			
 		 //문자열 비교 취소
 		 //String starScore = Integer.toString(starScoreGranted.getStarScore());
 		 
 		 // 별점을 이미 부여한 상태인지 체크
-		 if(starScoreGranted.getStarScore() != 0) {
-			 
+		 if(starScoreGranted.getStarScore() != 0) 
 			 throw new Exception("해당 건은 이미 별점을 부여하셨습니다.");
 			 
-		 }
-
 		 // 부여된 별점 세팅
 		 starScoreGranted.setStarScore(scoreRequest.getStarScore());
 		 

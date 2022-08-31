@@ -10,6 +10,7 @@ CREATE TABLE `daily` (
 	`contents` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
 	`daily_record_date` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
 	`dog_walker_id` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+	`dog_walker_name` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
 	`review` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
 	`star_score` INT(11) NOT NULL,
 	`user_id` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
@@ -23,8 +24,8 @@ CREATE TABLE `daily` (
 COLLATE='utf8mb4_general_ci'
 ENGINE=InnoDB;
 
-INSERT INTO daily (contents, daily_record_date, dog_walker_id, review, star_score, user_id, user_name, walk_end_date, walk_id, walk_start_date, walking_place) 
-VALUES ('일지를 작성합니다.', '2022-08-28 20:00', 'hisover', '후기를 작성합니다.', 5, 'ShinSeokHyeon', '신석현', '2022-08-30 22:00', 1, '2022-08-30 21:00', 'SEOUL');
+INSERT INTO daily (contents, daily_record_date, dog_walker_id, dog_walker_name, review, star_score, user_id, user_name, walk_end_date, walk_id, walk_start_date, walking_place) 
+VALUES ('일지를 작성합니다.', '2022-08-28 20:00', 'hisover', '신석현', '후기를 작성합니다.', 5, 'ShinSeokHyeon', '댕주인', '2022-08-30 22:00', 1, '2022-08-30 21:00', 'SEOUL');
 
 ---------------------------------------------------  
 2. kafka설치    
