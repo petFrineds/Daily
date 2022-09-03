@@ -14,5 +14,5 @@ public class DailyChangedRequestView {
 
 	private Long id;					// 일지ID
 	private String contents;			// 작성내용
-	private WalkingPlace walkingPlace;	// 산책장소
+	//private WalkingPlace walkingPlace;	// 산책장소
 }

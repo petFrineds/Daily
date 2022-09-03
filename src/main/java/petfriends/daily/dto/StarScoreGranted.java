@@ -11,8 +11,8 @@ public class StarScoreGranted extends AbstractEvent {
 	private Long id;					// 일지ID
     private String dailyRecordDate;		// 작성일자
     
-    @Enumerated(EnumType.STRING)
-    private WalkingPlace walkingPlace;	// 산책장소
+//    @Enumerated(EnumType.STRING)
+//    private WalkingPlace walkingPlace;	// 산책장소
     
     private String contents;			// 작성내용
     private int starScore;				// 별점
@@ -43,14 +43,6 @@ public class StarScoreGranted extends AbstractEvent {
 
 	public void setDailyRecordDate(String dailyRecordDate) {
 		this.dailyRecordDate = dailyRecordDate;
-	}
-
-	public WalkingPlace getWalkingPlace() {
-		return walkingPlace;
-	}
-
-	public void setWalkingPlace(WalkingPlace walkingPlace) {
-		this.walkingPlace = walkingPlace;
 	}
 
 	public String getContents() {

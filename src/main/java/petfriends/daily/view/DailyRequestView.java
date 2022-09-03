@@ -12,7 +12,7 @@ import petfriends.daily.model.WalkingPlace;
 @AllArgsConstructor
 public class DailyRequestView {
 	private String contents;			// 작성내용
-	private WalkingPlace walkingPlace;	// 산책장소
+	//private WalkingPlace walkingPlace;	// 산책장소
 	private Long walkId;				// 산책ID
 	private String userId;				// 회원ID
 	private String userName;			// 회원명
