@@ -36,7 +36,7 @@ public class DailyService {
 		 
 		 Daily dailyWrited = Daily.of(
 				 dailyRequest.getContents(),
-				 dailyRequest.getWalkingPlace(),
+				 //dailyRequest.getWalkingPlace(),
 				 dailyRequest.getWalkId(), 
 				 dailyRequest.getUserId(),
 				 dailyRequest.getUserName(),

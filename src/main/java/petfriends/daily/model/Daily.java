@@ -33,8 +33,8 @@ public class Daily {
     
     private String dailyRecordDate;		// 작성일자
     
-    @Enumerated(EnumType.STRING)
-    private WalkingPlace walkingPlace;	// 산책장소
+//    @Enumerated(EnumType.STRING)
+//    private WalkingPlace walkingPlace;	// 산책장소
     
     private String walkStartDate; 		// 산책 시작 일시분(실제)
 	private String walkEndDate;			// 산책 종료 일시분(실제)
@@ -72,7 +72,7 @@ public class Daily {
     
     public static Daily of(
     		String contents,
-    		WalkingPlace walkingPlace,
+    		//WalkingPlace walkingPlace,
     		Long walkId,
     		String userId,
     		String userName,
@@ -83,7 +83,7 @@ public class Daily {
     	
     	return Daily.builder()
     			.contents(contents)
-    			.walkingPlace(walkingPlace)
+    			//.walkingPlace(walkingPlace)
     			.walkId(walkId)
     			.userId(userId)
     			.userName(userName)
@@ -110,14 +110,6 @@ public class Daily {
 
 	public void setDailyRecordDate(String dailyRecordDate) {
 		this.dailyRecordDate = dailyRecordDate;
-	}
-
-	public WalkingPlace getWalkingPlace() {
-		return walkingPlace;
-	}
-
-	public void setWalkingPlace(WalkingPlace walkingPlace) {
-		this.walkingPlace = walkingPlace;
 	}
 
 	public String getContents() {
