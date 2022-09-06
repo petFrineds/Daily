@@ -46,6 +46,10 @@ logging:
       SQL: DEBUG
     org.springframework.cloud: debug
 
+jwt:
+  secret: bHYz66W8IOychO2VnCBwZXRmcmllbmRzIOydh
+
+
 ---
 
 spring:
@@ -54,7 +58,7 @@ spring:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://${HOST_NAME}:3306/petfriends?characterEncoding=UTF-8&serverTimezone=UTC
     username: ${DB_USERNAME}
-    password: 
+    password:
   jpa:
     hibernate:
       ddl-auto: update
@@ -82,7 +86,7 @@ spring:
           contentType: application/json
         event-out:
           destination: petfriends
-          contentType: application/json       
+          contentType: application/json
 logging:
   level:
     org.hibernate.type: trace
@@ -90,4 +94,7 @@ logging:
       type.descriptor.sql: trace #show parameter binding
       SQL: DEBUG
     org.springframework.cloud: debug
- 
+
+jwt:
+  secret: bHYz66W8IOychO2VnCBwZXRmcmllbmRzIOydh
+
