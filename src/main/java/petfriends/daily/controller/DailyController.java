@@ -35,6 +35,12 @@ import petfriends.daily.view.ScoreRequestView;
 	 public List<Daily> findAllByUserId(@PathVariable("userId") String userId) throws Exception {
 		 return dailyService.findAllByUserId(userId);
 	 }
+
+	 // 일지 목록 조회 (도그워커 기준)
+	 @GetMapping("/dailys/dogwalker/{dogWalkerId}")
+	 public List<Daily> findByDogWalkerId(@PathVariable("dogWalkerId") String dogWalkerId) throws Exception {
+		 return dailyService.findByDogWalkerId(dogWalkerId);
+	 }
 	 
 	 // 일지 작성 (생성)
 	 @PostMapping("/dailys")
