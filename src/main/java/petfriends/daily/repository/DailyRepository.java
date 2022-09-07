@@ -15,6 +15,9 @@ public interface DailyRepository extends JpaRepository<Daily, Long>{
     // 리스트 조회 (사용자 기준)
     List<Daily> findAllByUserId(String userId);
     
+    // 리스트 조회 (도그워커 기준)
+    List<Daily> findByDogWalkerId(String dogWalkerId);
+    
     // 단건 조회
     Optional<Daily> findById(Long id);
     

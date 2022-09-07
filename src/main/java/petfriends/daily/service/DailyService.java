@@ -30,6 +30,11 @@ public class DailyService {
 		 return dailyRepository.findAllByUserId(userId);
 	 } 
 	 
+	 // 일지 목록 조회 (도그워커 기준)
+	 public List<Daily> findByDogWalkerId(String dogWalkerId) {
+		 return dailyRepository.findByDogWalkerId(dogWalkerId);
+	 } 
+	 
 	 // 일지 작성
 	 @Transactional
 	 public Daily dailyWrited(DailyRequestView dailyRequest) throws Exception {
