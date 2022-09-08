@@ -57,10 +57,12 @@ public class DailyService {
 //		 dailyWrited.setDailyRecordDate(dateStr);
 		 
 		 // 원본
-		 LocalDateTime current = LocalDateTime.now();
-		 String dateStr = current.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-		 dailyWrited.setDailyRecordDate(dateStr);
+//		 LocalDateTime current = LocalDateTime.now();
+//		 String dateStr = current.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+//		 dailyWrited.setDailyRecordDate(dateStr);
 		 
+		 String dateStr = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+		 dailyWrited.setDailyRecordDate(dateStr);
 		 
 		 // 강제로 현재 시간에 9시간 더하기 (west2 오레곤 시간과 맞추기 위함)
 //		 LocalDateTime current = LocalDateTime.now();
